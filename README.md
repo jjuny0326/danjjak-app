@@ -1,10 +1,15 @@
 <div align="center">
 
+<img src="frontend/src/assets/danjjak-logo.png" width="88" alt="단짝 로고" />
+
 # 단짝 (Danjjak)
 
 **가족이 도와드리는 똑똑한 금융 생활**
 
-고령 사용자가 자주 이용하는 금융 업무를 단축번호와 음성 안내로 쉽게 수행하는 해커톤 MVP
+고령 사용자가 자주 이용하는 금융 업무를<br />
+**단축번호**와 **가족 음성 안내**로 쉽게 수행하는 해커톤 MVP
+
+<img src="docs/images/readme-banner.svg" width="100%" alt="단짝 — 가족의 안내로, 금융을 더 가깝게. 익숙한 번호 하나로 시작하는 금융 생활" />
 
 [![Vue](https://img.shields.io/badge/Vue-3.5-42b883)](frontend/package.json)
 [![Spring Framework](https://img.shields.io/badge/Spring%20Framework-5.3-6db33f)](backend/build.gradle)
@@ -14,7 +19,9 @@
 
 2026 KB IT's Your Life 해커톤 · 팀 '단짝친구' (5인)
 
-**본 저장소 작성자는 사용자·단축번호 도메인을 Full-stack으로 담당했습니다**
+**본 저장소 작성자는 사용자·단축번호 도메인의 FE·BE·DB를 담당했습니다.**
+
+[프로젝트 소개](#-프로젝트-소개) · [서비스 화면](#-서비스-화면) · [담당 범위](#-담당-범위) · [핵심 구현](#-핵심-구현과-검증) · [시작하기](#-시작하기)
 
 </div>
 
@@ -22,15 +29,35 @@
 
 ## 📝 프로젝트 소개
 
+<img align="right" src="frontend/src/assets/danjjakee.png" width="185" alt="노란 모자를 쓰고 별 지팡이를 든 단짝이 캐릭터" />
+
 전화기의 **단축번호**를 금융 앱에 옮겨온 서비스입니다.
 
 고령 사용자에게 금융 앱이 어려운 이유는 기능이 없어서가 아니라, **매번 같은 일을 하는데도 매번 처음처럼 길을 찾아야 하기 때문**입니다. 단짝은 가족이 미리 금융 패턴을 등록해두면, 시니어가 **번호 하나로 실행**할 수 있게 합니다.
 
-- 자주 사용하는 금융 업무를 단축번호로 등록
-- TTS와 화면 하이라이트로 금융 절차 단계별 안내
-- Mock 계좌와 거래 데이터로 송금 흐름 시연
-- 메인 송금 기능에서 Rule-based FDS 시연
-- 사용 로그를 기반으로 간단한 이용 분석 제공
+**찾기 쉽게 · 따라 하기 쉽게 · 다시 확인할 수 있게**
+
+자주 하는 업무는 번호로 꺼내고, 어려운 단계는 익숙한 가족의 목소리로 안내합니다.
+송금 내용을 직접 확인하며 진행하고, 고액·반복 송금에는 재확인 안내를 제공합니다.
+
+<br clear="all" />
+
+![가족이 업무와 안내 등록 → 사용자가 단축번호 선택 → 음성 안내를 따라 진행 → 확인 후 모의 송금 완료](docs/images/service-flow.svg)
+
+> 실제 은행·결제망과 연결하지 않으며, 모의 사용자·계좌·잔액·거래로 금융 흐름을 시연합니다. 위 이미지는 서비스 흐름을 설명하는 일러스트입니다.
+
+---
+
+## 📱 서비스 화면
+
+실제 Vue 화면 컴포넌트에 모의 데이터를 넣어 촬영한 예시입니다. 백엔드·외부 서비스 연동 없이 화면을 미리 보여주며, 표시된 인물·계좌·금액은 시연용입니다.
+
+| 홈 · 금융 단축번호 | 단축번호 관리 | 송금 · 금액 입력 |
+| :---: | :---: | :---: |
+| <img src="docs/images/screen-home.png" width="260" alt="홈 화면: 직접 송금하기, 말로 선택하기, 큰 단축번호 카드" /> | <img src="docs/images/screen-patterns.png" width="260" alt="단축번호 관리 화면: 등록된 금융 업무와 번호별 목록" /> | <img src="docs/images/screen-transfer-amount.png" width="260" alt="송금 금액 입력 화면: 50,000원과 5만원 병기, 큰 숫자 키패드" /> |
+| 번호를 누르거나 말해서<br />자주 쓰는 금융 업무 시작 | 등록한 업무를 확인하고<br />단축번호 순서 관리 | 큰 키패드로 금액 입력<br />숫자와 만원 단위 함께 확인 |
+
+화면 이미지를 누르면 원본 크기로 볼 수 있습니다.
 
 ---
 
@@ -51,9 +78,23 @@
 
 > 로그인·인증, 송금·FDS 코어, TTS·행동 로그는 다른 팀원이 담당했습니다.
 
+## 🔍 핵심 구현과 검증
+
+담당 영역에서 **어떤 문제를 해결했고, 코드와 테스트로 어떻게 확인할 수 있는지** 정리했습니다.
+
+| 구현 과제 | 해결 방식 | 코드 · 검증 근거 |
+| --- | --- | --- |
+| **단축번호 이동·교환** | 활성 패턴 전체를 기준으로 누락·중복을 검사하고, 기존 번호 해제와 새 번호 배정을 하나의 트랜잭션으로 처리 | [PatternService](backend/src/main/java/com/bestfriend/danjjak/pattern/service/PatternService.java) · [DB 통합 테스트](backend/src/test/java/com/bestfriend/danjjak/pattern/PatternDatabaseIntegrationTest.java) |
+| **금액 읽기와 표기 일관성** | 공통 금액 포맷 함수로 숫자·쉼표·한글·만/억 단위 표기를 관리하고, 입력·확인 화면에 맞춰 적용 | [금액 포맷 함수](frontend/src/utils/money.js) · [경계 금액 테스트](frontend/test/moneyFormat.test.js) |
+| **작은 화면과 큰 글씨 대응** | 긴 안내는 접거나 스크롤하고, 실행 버튼에 접근할 수 있도록 화면 구성 조정 | [화면 회귀 테스트](frontend/test/responsiveAccessibility.test.js) · [접근성 검증 기록](docs/accessibility-validation.md) |
+
+전체 서비스의 재현 절차와 검증 범위는 [시연 검증 문서](docs/demo-verification.md)에 정리했습니다.
+
 ---
 
 ## ✨ MVP 구현 범위
+
+아래는 **팀 전체가 구현한 서비스 기능**입니다. 개인 기여는 위 담당 범위와 핵심 구현을 기준으로 확인할 수 있습니다.
 
 ### 🔢 금융 단축번호
 
@@ -119,13 +160,17 @@
 
 ## 🏗 시스템 구조
 
-```text
-Vue frontend
-    -> Tomcat 9
-        -> Spring MVC controller
-            -> Service
-                -> MyBatis mapper
-                    -> MySQL
+```mermaid
+flowchart LR
+    UI["Vue 3 · Vite<br/>모바일 웹"] -->|HTTP API| Controller
+    subgraph Server["Tomcat 9 · Spring Framework 5.3 / WAR"]
+        Controller["Spring MVC<br/>Controller"] --> Service["Service<br/>업무 로직"]
+        Service --> Mapper["MyBatis<br/>Mapper"]
+    end
+    Mapper --> DB[("MySQL 8.4")]
+    style UI fill:#fff4cc,stroke:#d9a800,color:#28251e
+    style Server fill:#fafaf8,stroke:#d8d3c7,color:#28251e
+    style DB fill:#fff4cc,stroke:#d9a800,color:#28251e
 ```
 
 ---
