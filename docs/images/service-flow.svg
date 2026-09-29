@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="350" viewBox="0 0 1200 350" role="img" aria-labelledby="title desc">
+  <title id="title">단짝 이용 흐름</title>
+  <desc id="desc">가족이 금융 업무와 안내를 등록하고, 사용자가 단축번호를 선택하면, 음성 안내를 따라 내용을 확인하고 모의 송금을 완료합니다.</desc>
+  <rect width="1200" height="350" rx="24" fill="#fafaf8"/>
+  <g font-family="'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif" fill="#28251e">
+    <text x="40" y="51" font-size="24" font-weight="700">가족이 준비하고, 내가 직접 해내는 금융</text>
+    <text x="40" y="82" font-size="16" fill="#68645a">단축번호 선택부터 송금 완료까지, 필요한 안내를 한 단계씩.</text>
+    <g stroke="#e7e3d8" fill="#fff">
+      <rect x="40" y="116" width="254" height="194" rx="20"/>
+      <rect x="328" y="116" width="254" height="194" rx="20"/>
+      <rect x="616" y="116" width="254" height="194" rx="20"/>
+      <rect x="904" y="116" width="254" height="194" rx="20" fill="#fff4cc" stroke="#f0d373"/>
+    </g>
+    <g fill="#ffbc00">
+      <circle cx="80" cy="157" r="20"/><circle cx="368" cy="157" r="20"/>
+      <circle cx="656" cy="157" r="20"/><circle cx="944" cy="157" r="20"/>
+    </g>
+    <g font-size="17" font-weight="700" text-anchor="middle">
+      <text x="80" y="163">1</text><text x="368" y="163">2</text>
+      <text x="656" y="163">3</text><text x="944" y="163">4</text>
+    </g>
+    <g font-size="23" font-weight="700">
+      <text x="62" y="216">가족이 미리 등록</text><text x="350" y="216">번호 하나로 시작</text>
+      <text x="638" y="216">안내 따라 차근차근</text><text x="926" y="216">확인 후 송금 완료</text>
+    </g>
+    <g font-size="17" fill="#68645a">
+      <text x="62" y="253">자주 쓰는 업무와</text><text x="62" y="279">단계별 문구·음성 설정</text>
+      <text x="350" y="253">번호를 누르거나 말하고</text><text x="350" y="279">실행할 업무 확인</text>
+      <text x="638" y="253">가족 음성 또는 AI 음성으로</text><text x="638" y="279">송금 절차를 한 단계씩</text>
+      <text x="926" y="253">계좌·금액을 확인하고</text><text x="926" y="279">모의 거래 결과 확인</text>
+    </g>
+    <g fill="none" stroke="#b7ae97" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M302 211h17m-6-6 6 6-6 6"/><path d="M590 211h17m-6-6 6 6-6 6"/><path d="M878 211h17m-6-6 6 6-6 6"/>
+    </g>
+  </g>
+</svg>

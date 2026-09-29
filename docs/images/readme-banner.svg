@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">단짝 — 가족의 안내로, 금융을 더 가깝게</title>
+  <desc id="desc">노란색 배경 위에 단짝 소개와 1부터 9까지의 단축번호 키패드를 배치한 소개 배너입니다.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fff9e8"/>
+      <stop offset="1" stop-color="#ffe28a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="400" rx="28" fill="url(#background)"/>
+  <circle cx="1110" cy="40" r="230" fill="#ffbc00" opacity=".2"/>
+  <circle cx="760" cy="430" r="170" fill="#fff" opacity=".35"/>
+  <g font-family="'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif" fill="#28251e">
+    <text x="64" y="66" font-size="16" font-weight="700" letter-spacing="3" fill="#79580d">DANJJAK · FINANCIAL COMPANION</text>
+    <text x="60" y="156" font-size="68" font-weight="800">단짝</text>
+    <text x="64" y="218" font-size="34" font-weight="700">가족의 안내로, 금융을 더 가깝게.</text>
+    <text x="64" y="263" font-size="21" fill="#655b44">익숙한 번호 하나로 시작하는 금융 생활</text>
+    <rect x="64" y="308" width="126" height="40" rx="20" fill="#fff"/>
+    <rect x="202" y="308" width="126" height="40" rx="20" fill="#fff"/>
+    <rect x="340" y="308" width="126" height="40" rx="20" fill="#fff"/>
+    <g font-size="17" font-weight="700" text-anchor="middle">
+      <text x="127" y="335">금융 단축번호</text>
+      <text x="265" y="335">가족 음성 안내</text>
+      <text x="403" y="335">모의 송금</text>
+    </g>
+    <g transform="translate(830 43)">
+      <rect x="8" y="8" width="298" height="318" rx="28" fill="#c6992f" opacity=".15"/>
+      <rect width="298" height="318" rx="28" fill="#fffdf6"/>
+      <text x="26" y="43" font-size="18" font-weight="700">내 단축번호</text>
+      <g fill="#f4f0e6">
+        <rect x="26" y="65" width="74" height="64" rx="16" fill="#ffbc00"/>
+        <rect x="112" y="65" width="74" height="64" rx="16"/>
+        <rect x="198" y="65" width="74" height="64" rx="16"/>
+        <rect x="26" y="141" width="74" height="64" rx="16"/>
+        <rect x="112" y="141" width="74" height="64" rx="16"/>
+        <rect x="198" y="141" width="74" height="64" rx="16"/>
+        <rect x="26" y="217" width="74" height="64" rx="16"/>
+        <rect x="112" y="217" width="74" height="64" rx="16"/>
+        <rect x="198" y="217" width="74" height="64" rx="16"/>
+      </g>
+      <g text-anchor="middle" font-size="29" font-weight="700">
+        <text x="63" y="108">1</text><text x="149" y="108">2</text><text x="235" y="108">3</text>
+        <text x="63" y="184">4</text><text x="149" y="184">5</text><text x="235" y="184">6</text>
+        <text x="63" y="260">7</text><text x="149" y="260">8</text><text x="235" y="260">9</text>
+      </g>
+    </g>
+  </g>
+</svg>
